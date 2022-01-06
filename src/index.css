@@ -1,12 +1,225 @@
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
+    font-family: "Segoe UI", serif;
+    color: #eee;
 }
 
-#temp {
-    color: red;
-    font-size: 5rem;
+html {
+    background: #282c34;
+}
+
+.main-container {
     display: flex;
-    justify-content: center;
-    margin-top: 45vh;
+    justify-content: space-between;
+}
+
+.app-info-container {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.search-container {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.app-logo {
+    width: min(15%, 4rem);
+    margin-right: min(4%, 20px);
+}
+
+.search-icon {
+    width: 2rem;
+    margin-left: 5px;
+}
+
+.app-label {
+    font-weight: 1000;
+    font-size: min(6vw, 2rem);
+}
+
+.input-field {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #bebebe;
+    outline: 0;
+    font-size: 24px;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.input-field:focus {
+    font-weight: 600;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #76bdb8, #fd4a5c);
+    border-image-slice: 1;
+}
+
+.weather-info-container {
+
+}
+
+.weather-icon-container {
+    border: 3px solid red;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+/* For mobile phones: */
+@media only screen and (max-width: 366px) {
+    .main-container {
+        display: block;
+    }
+
+    .app-info-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .search-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        margin-top: 20px;
+    }
+
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+
+/* For tablets: */
+@media only screen and (min-width: 600px) {
+    .app-logo {
+        width: 12%;
+    }
+
+    .app-label {
+        font-weight: 1000;
+        font-size: 22px;
+    }
+
+    .col-s-1 {
+        width: 8.33%;
+    }
+
+    .col-s-2 {
+        width: 16.66%;
+    }
+
+    .col-s-3 {
+        width: 25%;
+    }
+
+    .col-s-4 {
+        width: 33.33%;
+    }
+
+    .col-s-5 {
+        width: 41.66%;
+    }
+
+    .col-s-6 {
+        width: 50%;
+    }
+
+    .col-s-7 {
+        width: 58.33%;
+    }
+
+    .col-s-8 {
+        width: 66.66%;
+    }
+
+    .col-s-9 {
+        width: 75%;
+    }
+
+    .col-s-10 {
+        width: 83.33%;
+    }
+
+    .col-s-11 {
+        width: 91.66%;
+    }
+
+    .col-s-12 {
+        width: 100%;
+    }
+}
+
+/* For desktop: */
+@media only screen and (min-width: 768px) {
+
+    .col-1 {
+        width: 8.33%;
+    }
+
+    .col-2 {
+        width: 16.66%;
+    }
+
+    .col-3 {
+        width: 25%;
+    }
+
+    .col-4 {
+        width: 33.33%;
+    }
+
+    .col-5 {
+        width: 41.66%;
+    }
+
+    .col-6 {
+        width: 50%;
+    }
+
+    .col-7 {
+        width: 58.33%;
+    }
+
+    .col-8 {
+        width: 66.66%;
+    }
+
+    .col-9 {
+        width: 75%;
+    }
+
+    .col-10 {
+        width: 83.33%;
+    }
+
+    .col-11 {
+        width: 91.66%;
+    }
+
+    .col-12 {
+        width: 100%;
+    }
+}
+
+/* For desktop: Fullscreen: full width of custom-inner-div*/
+@media only screen and (min-width: 1200px) {
+    .custom-inner-div {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .col-8 {
+        width: 66.66%;
+    }
+
+    .col-s-7 {
+        width: 58.33%;
+    }
 }
