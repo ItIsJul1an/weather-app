@@ -11,6 +11,7 @@ const App = () => {
 
     return (
         <>
+            <a href='#' className='back-to-top'/>
             <Header/>
             <Content/>
         </>
