@@ -8,13 +8,14 @@ const Header = () => {
 
     return (
         <>
-            <div className='main-container'>
+            <div className='main-container-header'>
                 <div className='app-info-container'>
                     <img src={logo} alt={'App-Logo'} className='app-logo'/>
                     <label className='app-label'>Wetter App</label>
                 </div>
                 <div className='search-container'>
-                    <input type='text' ref={inputRef} placeholder='Stadtnamen eingeben ...' className='input-field'/>
+                    <input type='text' ref={inputRef} placeholder='Stadtnamen eingeben ...'
+                           className='input-field normal-font'/>
                     <img src={search_icon} alt={'Search-Icon'} className='search-icon'/>
                 </div>
             </div>
