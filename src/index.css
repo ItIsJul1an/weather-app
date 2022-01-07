@@ -1,80 +1,169 @@
 * {
-    box-sizing: border-box;
     scroll-behavior: smooth;
-    font-family: "Segoe UI", serif;
     color: #eee;
+    font-family: "Segoe UI", sans-serif;
+    border-radius: 10px;
 }
 
 html {
     background: #282c34;
+    min-width: 265px;
+}
+
+span {
+    display: block;
+    margin: 5px;
 }
 
 .main-container {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    gap: 1.5rem;
+    place-items: center;
+    margin-top: 3rem;
+    grid-auto-flow: row;
 }
 
-.app-info-container {
-    width: fit-content;
+.main-container-header {
+    position: sticky;
+    top: 0;
+    display: grid;
+    grid-auto-flow: column;
+    background: #704198;
+    border-radius: unset;
+    padding: 10px;
+}
+
+.content-container {
+    display: grid;
+    width: 70%;
+    gap: 1rem;
+    grid-auto-flow: column;
+    background: linear-gradient(to bottom, #704198, #895b98, #a37697);
+}
+
+.app-info-container, .search-container {
     display: flex;
     align-items: center;
 }
 
 .search-container {
-    width: 50%;
-    display: flex;
-    align-items: center;
     justify-content: right;
 }
 
+.weather-info-container {
+    display: grid;
+    padding: 18px;
+    place-items: center;
+    text-align: center;
+}
+
+.weather-icon-container {
+    display: grid;
+    padding: 18px;
+    place-items: center;
+    grid-template-rows: repeat(1, 1fr);
+    text-align: center;
+}
+
 .app-logo {
-    width: min(15%, 4rem);
+    width: min(20%, 3.5rem);
     margin-right: min(4%, 20px);
 }
 
-.search-icon {
-    width: 2rem;
-    margin-left: 5px;
+.app-label {
+    font-family: "Segoe UI Black", sans-serif;
+    font-size: min(4.5vw, 1.7rem);
 }
 
-.app-label {
-    font-weight: 1000;
-    font-size: min(6vw, 2rem);
+.search-icon {
+    width: min(13%, 2rem);
+    margin: 5px 10px;
+}
+
+.weather-icon {
+    width: 100px;
+}
+
+.large-bold-font {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.normal-font {
+    font-size: 18px;
+}
+
+.normal-bold-font {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.large-bold-cursive-font {
+    font-family: "Segoe UI Black", sans-serif;
+    font-style: italic;
+    font-size: 50px;
+    font-weight: bold;
 }
 
 .input-field {
-    width: 100%;
+    width: 73%;
     border: 0;
-    border-bottom: 2px solid #bebebe;
     outline: 0;
-    font-size: 24px;
+    border-radius: unset;
+    border-bottom: 2px solid #bebebe;
     background: transparent;
-    transition: border-color 0.2s;
+    text-align: right;
+}
+
+.input-field::placeholder {
+    color: #bbbbbb;
+    font-size: min(3vw, 1.2rem);
 }
 
 .input-field:focus {
     font-weight: 600;
     border-width: 3px;
-    border-image: linear-gradient(to right, #76bdb8, #fd4a5c);
+    border-image: linear-gradient(to right, #ffc56d, #fd4a5c);
     border-image-slice: 1;
 }
 
-.weather-info-container {
 
+.back-to-top {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    border: 0;
+    outline: 0;
+    background-color: #FF9800;
+    text-decoration: none;
+    transition: background-color .3s,
+    opacity .5s, visibility .5s;
 }
 
-.weather-icon-container {
-    border: 3px solid red;
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: right;
+.back-to-top::before {
+    content: "^";
+    font-size: 2.5rem;
+    color: #fff;
 }
+
+.back-to-top:hover {
+    cursor: pointer;
+    background-color: #cc7900;
+}
+
+.back-to-top:active {
+    background-color: #b26a00;
+}
+
 
 /* For mobile phones: */
 @media only screen and (max-width: 366px) {
-    .main-container {
-        display: block;
+    .main-container-header {
+        grid-auto-flow: row;
+        gap: 1rem;
     }
 
     .app-info-container {
@@ -82,144 +171,46 @@ html {
         justify-content: center;
     }
 
-    .search-container {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: right;
-        margin-top: 20px;
-    }
-
-    [class*="col-"] {
-        width: 100%;
-    }
-}
-
-
-/* For tablets: */
-@media only screen and (min-width: 600px) {
     .app-logo {
-        width: 12%;
+        width: 20%;
     }
 
     .app-label {
-        font-weight: 1000;
-        font-size: 22px;
+        font-size: 30px;
     }
 
-    .col-s-1 {
-        width: 8.33%;
-    }
-
-    .col-s-2 {
-        width: 16.66%;
-    }
-
-    .col-s-3 {
-        width: 25%;
-    }
-
-    .col-s-4 {
-        width: 33.33%;
-    }
-
-    .col-s-5 {
-        width: 41.66%;
-    }
-
-    .col-s-6 {
-        width: 50%;
-    }
-
-    .col-s-7 {
-        width: 58.33%;
-    }
-
-    .col-s-8 {
-        width: 66.66%;
-    }
-
-    .col-s-9 {
-        width: 75%;
-    }
-
-    .col-s-10 {
-        width: 83.33%;
-    }
-
-    .col-s-11 {
-        width: 91.66%;
-    }
-
-    .col-s-12 {
+    .input-field {
+        text-align: center;
         width: 100%;
+    }
+
+    .input-field::placeholder {
+        font-size: 1.3rem;
     }
 }
 
-/* For desktop: */
-@media only screen and (min-width: 768px) {
-
-    .col-1 {
-        width: 8.33%;
+/* For tablets: */
+@media only screen and (max-width: 400px) {
+    .content-container {
+        grid-auto-flow: row;
     }
 
-    .col-2 {
-        width: 16.66%;
-    }
-
-    .col-3 {
-        width: 25%;
-    }
-
-    .col-4 {
-        width: 33.33%;
-    }
-
-    .col-5 {
-        width: 41.66%;
-    }
-
-    .col-6 {
-        width: 50%;
-    }
-
-    .col-7 {
-        width: 58.33%;
-    }
-
-    .col-8 {
-        width: 66.66%;
-    }
-
-    .col-9 {
-        width: 75%;
-    }
-
-    .col-10 {
-        width: 83.33%;
-    }
-
-    .col-11 {
-        width: 91.66%;
-    }
-
-    .col-12 {
-        width: 100%;
+    .weather-icon-container {
+        border-top: 4px solid #eee;
+        place-items: center;
     }
 }
 
-/* For desktop: Fullscreen: full width of custom-inner-div*/
-@media only screen and (min-width: 1200px) {
-    .custom-inner-div {
-        display: inline-block;
+/* For tablets: */
+@media only screen and (max-width: 600px) {
+    .content-container {
         width: 100%;
     }
 
-    .col-8 {
-        width: 66.66%;
-    }
-
-    .col-s-7 {
-        width: 58.33%;
+    .back-to-top {
+        width: 100%;
+        height: 45px;
+        bottom: 0;
+        right: 0;
     }
 }
