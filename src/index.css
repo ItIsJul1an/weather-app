@@ -3,16 +3,37 @@
     color: #eee;
     font-family: "Segoe UI", sans-serif;
     border-radius: 10px;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-    background: #282c34;
     min-width: 265px;
 }
 
 span {
     display: block;
     margin: 5px;
+}
+
+.app.cold {
+    min-height: 100vh;
+    border-radius: unset;
+    background-image: url('resources/assets/backgrounds/cold-bg.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    transition: 0.4s ease-out;
+}
+
+.app.warm {
+    min-height: 100vh;
+    border-radius: unset;
+    background-image: url('resources/assets/backgrounds/warm-bg.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    transition: 0.4s ease-out;
 }
 
 .main-container {
@@ -28,17 +49,27 @@ span {
     top: 0;
     display: grid;
     grid-auto-flow: column;
-    background: #704198;
+    background: #485c79;
     border-radius: unset;
     padding: 10px;
 }
 
-.content-container {
+.content-container-grid-flow-column {
     display: grid;
     width: 70%;
     gap: 1rem;
+    padding: 18px;
     grid-auto-flow: column;
-    background: linear-gradient(to bottom, #704198, #895b98, #a37697);
+    background: linear-gradient(to bottom, #485c79, #7a8e8a);
+}
+
+.content-container-grid-flow-row {
+    display: grid;
+    width: 70%;
+    gap: 1rem;
+    padding: 18px;
+    grid-auto-flow: row;
+    background: linear-gradient(to bottom, #485c79, #7a8e8a);
 }
 
 .app-info-container, .search-container {
@@ -50,19 +81,35 @@ span {
     justify-content: right;
 }
 
-.weather-info-container {
+
+.grid-flow-row {
     display: grid;
-    padding: 18px;
     place-items: center;
     text-align: center;
+    grid-template-rows: repeat(1, 1fr);
 }
 
-.weather-icon-container {
+.grid-flow-column {
     display: grid;
+    place-items: start;
     padding: 18px;
-    place-items: center;
-    grid-template-rows: repeat(1, 1fr);
-    text-align: center;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.flow-left {
+    place-items: start;
+    text-align: left;
+    grid-column-start: span 2;
+}
+
+.flow-right {
+    width: 35vw;
+    place-items: end;
+    text-align: right;
+}
+
+.last-element-margin {
+    margin-bottom: 55px;
 }
 
 .app-logo {
@@ -81,7 +128,11 @@ span {
 }
 
 .weather-icon {
-    width: 100px;
+    width: 150px;
+}
+
+.information-icon {
+    width: 30px;
 }
 
 .large-bold-font {
@@ -95,6 +146,17 @@ span {
 
 .normal-bold-font {
     font-size: 18px;
+    font-weight: 600;
+}
+
+.medium-bold-font {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.medium-bold-center-font {
+    text-align: center;
+    font-size: 22px;
     font-weight: bold;
 }
 
@@ -110,20 +172,20 @@ span {
     border: 0;
     outline: 0;
     border-radius: unset;
-    border-bottom: 2px solid #bebebe;
+    border-bottom: 2px solid #eee;
     background: transparent;
     text-align: right;
 }
 
 .input-field::placeholder {
-    color: #bbbbbb;
+    color: #eee;
     font-size: min(3vw, 1.2rem);
 }
 
 .input-field:focus {
     font-weight: 600;
     border-width: 3px;
-    border-image: linear-gradient(to right, #ffc56d, #fd4a5c);
+    border-image: linear-gradient(to right, #f4f4f4, #65baaf);
     border-image-slice: 1;
 }
 
@@ -133,8 +195,8 @@ span {
     height: 50px;
     text-align: center;
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
     border: 0;
     outline: 0;
     background-color: #FF9800;
@@ -191,20 +253,34 @@ span {
 
 /* For tablets: */
 @media only screen and (max-width: 400px) {
-    .content-container {
+    .content-container-grid-flow-column {
         grid-auto-flow: row;
     }
 
-    .weather-icon-container {
+    .white-border {
         border-top: 4px solid #eee;
-        place-items: center;
     }
 }
 
 /* For tablets: */
 @media only screen and (max-width: 600px) {
-    .content-container {
+    .content-container-grid-flow-column {
         width: 100%;
+        padding: 0;
+    }
+
+    .content-container-grid-flow-row {
+        width: 100%;
+        padding: 0;
+    }
+
+    .grid-flow-row {
+        padding: 18px;
+    }
+
+    .medium-padding {
+        padding-left: 18px;
+        padding-top: 18px;
     }
 
     .back-to-top {
