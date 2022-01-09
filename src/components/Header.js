@@ -1,10 +1,8 @@
-import React, {useRef} from 'react';
-import logo from '../resources/assets/weather-app-icon.svg'
-import search_icon from '../resources/assets/search-icon.svg'
+import React from 'react';
+import logo from '../resources/assets/icons/weather-app-icon.svg'
+import search_icon from '../resources/assets/icons/search-icon.svg'
 
 const Header = () => {
-
-    const inputRef = useRef()
 
     return (
         <>
@@ -14,7 +12,7 @@ const Header = () => {
                     <label className='app-label'>Wetter App</label>
                 </div>
                 <div className='search-container'>
-                    <input type='text' ref={inputRef} placeholder='Stadtnamen eingeben ...'
+                    <input type='text' placeholder='Stadtnamen eingeben ...'
                            className='input-field normal-font'/>
                     <img src={search_icon} alt={'Search-Icon'} className='search-icon'/>
                 </div>
